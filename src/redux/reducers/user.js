@@ -1,18 +1,15 @@
-import { VALIDATE_LOGIN, REQUEST_USER } from '../actions';
+import { VALIDATE_LOGIN } from '../actions';
 
 const INITIAL_STATE = {
   user: {
     email: '',
-    password: '',
   },
 };
 
 const user = (state = INITIAL_STATE, action) => {
   switch (action.type) {
   case VALIDATE_LOGIN:
-    return action.value;
-  case REQUEST_USER:
-    return state;
+    return { ...state, email: action.payload };
   default:
     return state;
   }

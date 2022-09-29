@@ -1,14 +1,14 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import store from './redux/store';
+import { Switch, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import Wallet from './pages/Wallet';
 
 function App() {
   return (
-    <div>
-      <Provider store={ store }>
-        <App />
-      </Provider>
-    </div>
+    <Switch>
+      <Route exact path="/" component={ Login } />
+      <Route exact path="/carteira" component={ Wallet } />
+    </Switch>
   );
 }
 

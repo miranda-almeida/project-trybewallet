@@ -1,3 +1,6 @@
 export const VALIDATE_LOGIN = 'VALIDATE_LOGIN';
-export const REQUEST_USER = 'REQUEST_USER';
-export const REQUEST_WALLET = 'REQUEST_WALLET';
+
+export const validateLogin = (email) => ({
+  type: VALIDATE_LOGIN,
+  payload: email,
+});

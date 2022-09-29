@@ -1,16 +1,5 @@
-import { REQUEST_WALLET } from '../actions';
-
-const INITIAL_STATE = {
-  wallet: {
-    currency: [],
-    expenses: [],
-  },
-};
-
-const wallet = (state = INITIAL_STATE, actions) => {
-  switch (actions.type) {
-  case REQUEST_WALLET:
-    return state;
+const wallet = (state = {}, action) => {
+  switch (action.type) {
   default:
     return state;
   }
