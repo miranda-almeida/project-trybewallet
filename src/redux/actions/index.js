@@ -1,1 +1,3 @@
-// Coloque aqui suas actions
+export const VALIDATE_LOGIN = 'VALIDATE_LOGIN';
+export const REQUEST_USER = 'REQUEST_USER';
+export const REQUEST_WALLET = 'REQUEST_WALLET';
