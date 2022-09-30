@@ -1,13 +1,13 @@
 export const VALIDATE_LOGIN = 'VALIDATE_LOGIN';
+export const REQUEST_API = 'REQUEST_API';
+export const REQUEST_SUCCESS = 'RESPONSE_SUCCESS';
+export const REQUEST_FAILURE = 'REQUEST_FAILURE';
+export const NEW_EXPENSE = 'NEW_EXPENSE';
 
 export const validateLogin = (email) => ({
   type: VALIDATE_LOGIN,
   payload: email,
 });
-
-export const REQUEST_API = 'REQUEST_API';
-export const REQUEST_SUCCESS = 'RESPONSE_SUCCESS';
-export const REQUEST_FAILURE = 'REQUEST_FAILURE';
 
 export const requestAPI = () => ({
   type: REQUEST_API,
@@ -31,5 +31,20 @@ export const actionAPI = () => async (dispatch) => {
     dispatch(requestSuccess(returns));
   } catch (error) {
     dispatch(requestFailure(error));
+  }
+};
+
+export const newExpense = (conversion, expense) => ({
+  type: NEW_EXPENSE,
+  payload: { ...expense, exchangeRates: conversion },
+});
+
+export const requestConversion = (conversion) => async (dispatch) => {
+  try {
+    const response = await fetch('https://economia.awesomeapi.com.br/json/all');
+    const returns = await response.json();
+    dispatch(newExpense(returns, conversion));
+  } catch (error) {
+    return error;
   }
 };
