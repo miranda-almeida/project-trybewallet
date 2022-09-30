@@ -18,4 +18,22 @@ describe('Testes para cobertura do requisito 5', () => {
     const { pathname } = history.location;
     expect(pathname).toBe('/carteira');
   });
+
+  it('Renderiza elementos demarcados por test-id dos requisitos na /carteira', () => {
+    const { history } = renderWithRouterAndRedux(<App />, { initialEntries: ['/carteira'] });
+    const { location: { pathname } } = history;
+    expect(pathname).toBe('/carteira');
+
+    const email = screen.getByTestId('email-field');
+    const total = screen.getByTestId('total-field');
+    const currency = screen.getByTestId('header-currency-field');
+    const value = screen.getByTestId('value-input');
+    const description = screen.getByTestId('description-input');
+
+    expect(email).toBeInTheDocument();
+    expect(total).toBeInTheDocument();
+    expect(currency).toBeInTheDocument();
+    expect(value).toBeInTheDocument();
+    expect(description).toBeInTheDocument();
+  });
 });
