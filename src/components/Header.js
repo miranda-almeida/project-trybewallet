@@ -26,7 +26,7 @@ class Header extends Component {
       <div>
         <h3 data-testid="email-field">{ `Olá, ${email}` }</h3>
         <h4 data-testid="total-field">{ this.makeConversion() }</h4>
-        <h4 data-testid="header-currency-field">USD</h4>
+        <h4 data-testid="header-currency-field">BRL</h4>
       </div>
     );
   }
