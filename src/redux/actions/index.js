@@ -3,6 +3,7 @@ export const REQUEST_API = 'REQUEST_API';
 export const REQUEST_SUCCESS = 'RESPONSE_SUCCESS';
 export const REQUEST_FAILURE = 'REQUEST_FAILURE';
 export const NEW_EXPENSE = 'NEW_EXPENSE';
+export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
 
 export const validateLogin = (email) => ({
   type: VALIDATE_LOGIN,
@@ -48,3 +49,8 @@ export const requestConversion = (conversion) => async (dispatch) => {
     return error;
   }
 };
+
+export const removeExpense = (expense) => ({
+  type: REMOVE_EXPENSE,
+  payload: expense,
+});
