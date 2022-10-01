@@ -36,4 +36,27 @@ describe('Testes para cobertura do requisito 5', () => {
     expect(value).toBeInTheDocument();
     expect(description).toBeInTheDocument();
   });
+
+  it('Verifica a funcionalidade do botão para adicionar despesa', () => {
+    const { history } = renderWithRouterAndRedux(<App />, { initialEntries: ['/carteira'] });
+    const { location: { pathname } } = history;
+    expect(pathname).toBe('/carteira');
+
+    const button = screen.getByRole('button', {
+      name: /adicionar despesa/i,
+    });
+
+    expect(button).toBeInTheDocument();
+    userEvent.click(button);
+  });
+
+  it('Verifica a funcionalidade do botão de deletar despesa', async () => {
+    const button = await screen.findByTestId('delete-btn');
+    const info = await screen.findByRole('cell', {
+      name: 'Real',
+    });
+
+    expect(button).toBeInTheDocument();
+    expect(info).toBeInTheDocument();
+  });
 });
